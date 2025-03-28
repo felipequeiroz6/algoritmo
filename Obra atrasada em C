@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <locale.h>
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+    int diasAtraso;    
+
+    // Lê o número de dias de atraso
+    printf("Digite o tempo de atraso em dias: ");
+    scanf("%d", &diasAtraso);
+
+    // Verifica se a obra está atrasada
+    if (diasAtraso >= 60) {
+        printf("A obra está atrasada.\n");
+    } else {
+        printf("A obra não está atrasada.\n");
+    }
+
+    return 0;
+}
