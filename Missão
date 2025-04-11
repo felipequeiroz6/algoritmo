@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+    char resposta[10];
+    int tentativas = 0;
+    const char codigo_correto[] = "1337"; // Código correto decodificado de "MTMzNw=="
+
+    printf("?? ALERTA DE SEGURANÇA ??\n");
+    printf("O sistema do laboratório está sob ataque!\n");
+    printf("Você tem 3 tentativas para decifrar e bloquear a invasão.\n");
+
+    while (tentativas < 3) {
+        printf("\nEscolha uma opção:\n");
+        printf("1 - Interceptar e tentar capturar o código\n");
+        printf("2 - Analisar logs (dica)\n");
+        printf("3 - Ignorar (não recomendado)\n");
+
+        int opcao;
+        printf("Digite a opção desejada: ");
+        scanf("%d", &opcao);
+
+        switch(opcao) {
+            case 1: {
+                printf("Tentativa %d: Você escolheu interceptar e tentar capturar o código.\n", tentativas + 1);
+                printf("Digite o código de desbloqueio: ");
+                scanf("%s", resposta);
+
+                // Verificar se a resposta está correta
+                if (strcmp(resposta, codigo_correto) == 0) {
+                    printf("? Código correto! Sistema desbloqueado!\n");
+                    return 0; // Sai do programa após o sucesso
+                } else {
+                    printf("? Código incorreto! Tente novamente.\n");
+                }
+                break;
+            }
+
+            case 2: {
+                printf("Tentativa %d: Você escolheu analisar os logs. Dica: O código está em Base64 e ao ser decodificado, resulta em um número.\n", tentativas + 1);
+                break;
+            }
+
+            case 3: {
+                printf("Tentativa %d: Você escolheu ignorar. O sistema está vulnerável. Não é recomendado ignorar!\n", tentativas + 1);
+                break;
+            }
+
+            default:
+                printf("Opção inválida. Tente novamente.\n");
+        }
+
+        // Incrementar o número de tentativas
+        tentativas++;
+
+        // Se o número de tentativas chegar a 3, o sistema será comprometido
+        if (tentativas == 3) {
+            printf("? O sistema foi comprometido! Você falhou em proteger o sistema.\n");
+        }
+    }
+
+    return 0;
+}
