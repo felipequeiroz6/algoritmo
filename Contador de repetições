@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int cont = 0;   // Contador de repetições
+    char letra;     // Variável para armazenar o caractere digitado
+    
+    // Lê o caractere enquanto não for 'q'
+    do {
+        printf("Digite um caractere (pressione 'q' para parar): ");
+        letra = getchar(); // Captura o caractere digitado
+        getchar(); // Para consumir o caractere '\n' que fica no buffer
+        if (letra != 'q') {
+            printf("UNICEPLAC... \n");
+            cont++;  // Incrementando o contador
+        }
+    } while (letra != 'q'); // Continua até o usuário digitar 'q'
+    
+    printf("Parando...\n");
+    printf("Repetições = %d \n", cont); // Mostrando o número de repetições
+    
+    return 0;
+}
