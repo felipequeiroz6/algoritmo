@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char senhaCorreta[] = "1234";  // Defina a senha correta aqui
+    char senhaDigitada[10];  // Array para armazenar a senha digitada pelo usuário
+    int tentativas = 0;  // Contador de tentativas
+    int maxTentativas = 3;  // Número máximo de tentativas
+    
+    // Loop que permite até 3 tentativas
+    while (tentativas < maxTentativas) {
+        printf("Digite sua senha: ");
+        scanf("%s", senhaDigitada);  // Lê a senha digitada pelo usuário
+        
+        // Verifica se a senha digitada está correta
+        if (strcmp(senhaCorreta, senhaDigitada) == 0) {
+            printf("Senha correta! Acesso permitido.\n");
+            return 0;  // Sai do programa após a senha correta
+        } else {
+            tentativas++;  // Incrementa o número de tentativas
+            printf("Senha incorreta. Você tem %d tentativa(s) restante(s).\n", maxTentativas - tentativas);
+        }
+    }
+    
+    // Se o usuário errou 3 vezes, exibe a mensagem de erro
+    printf("Você errou a senha 3 vezes. Por favor, procure a agência do banco.\n");
+    
+    return 0;
+}
